@@ -1,4 +1,5 @@
 import os
+import re
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -12,6 +13,7 @@ from resources.store import Store, StoreList
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 uri = os.environ.get('DATABASE_URL')
+print(uri)
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 
